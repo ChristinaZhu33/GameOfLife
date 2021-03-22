@@ -65,8 +65,11 @@ public void copyFromBufferToButtons() {
   for (int r = 0; r < NUM_ROWS; r++){
     for (int c = 0; c < NUM_COLS; c++){
       
-      //???
-      buttons[r][c].setLife(buffer[r][c]);
+     if (buffer[r][c] == true) {
+          buttons[r][c].alive = true;
+        } else {
+          buttons[r][c].alive = false;
+        }
     }
   }
 }
@@ -75,7 +78,11 @@ public void copyFromButtonsToBuffer() {
   //your code here
   for (int r = 0; r < NUM_ROWS; r++){
     for (int c = 0; c < NUM_COLS; c++){
-    buffer[r][c] = buttons[r][c].getLife();
+     if (buttons[r][c].alive == true) {
+          buffer[r][c] = true;
+        } else {
+          buffer[r][c] = false;
+        }
     }
     }
   }
